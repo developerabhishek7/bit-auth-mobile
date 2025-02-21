@@ -1,7 +1,6 @@
 import { ENCRYPTED_STORAGE_KEYS } from '@bit-ui-libs/common';
 import EncryptedStorage from 'react-native-encrypted-storage';
 import { getLoggerByNamespace } from './logger';
-import {storage} from '../../../../core/index'
 
 export async function clearEncryptedStorage(keysToSkip?: string[]) {
   const logger = getLoggerByNamespace('clearEncryptedStorage');
@@ -33,7 +32,6 @@ export async function clearEncryptedStorage(keysToSkip?: string[]) {
 }
 
 export async function clearAuthData() {
-  await storage.clear()
   await clearEncryptedStorage([
     ENCRYPTED_STORAGE_KEYS.introPassed,
     ENCRYPTED_STORAGE_KEYS.authStep,
